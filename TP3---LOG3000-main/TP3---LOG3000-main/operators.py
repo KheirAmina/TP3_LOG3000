@@ -5,16 +5,17 @@ Chaque fonction prend deux nombres en entrée et retourne le résultat de l'opé
 
 def add(a: float, b: float) -> float:
     """
-    Additionne deux nombres.
+    Additionne deux nombres avec une précision fixe de 2 décimales.
     
     Args:
         a (float): Premier opérande
         b (float): Deuxième opérande
     
     Returns:
-        float: La somme de a et b
+        float: La somme de a et b avec une précision contrôlée
     """
-    return a + b
+    # Utilisation de round pour contrôler la précision
+    return round(a + b, 2)
 
 def subtract(a: float, b: float) -> float:
     """
