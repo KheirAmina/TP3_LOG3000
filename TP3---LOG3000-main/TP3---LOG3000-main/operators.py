@@ -31,16 +31,16 @@ def subtract(a: float, b: float) -> float:
 
 def multiply(a: float, b: float) -> float:
     """
-    Calcule la puissance d'un nombre par un autre.
+    Multiplie deux nombres.
     
     Args:
-        a (float): La base
-        b (float): L'exposant
+        a (float): Premier facteur
+        b (float): Deuxième facteur
     
     Returns:
-        float: Le résultat de a élevé à la puissance b (a ** b)
+        float: Le produit de a et b
     """
-    return a ** b
+    return a * b
 
 def divide(a: float, b: float) -> float:
     """
