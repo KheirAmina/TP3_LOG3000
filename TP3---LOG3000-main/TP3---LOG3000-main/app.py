@@ -1,8 +1,15 @@
+"""
+Application web de calculatrice utilisant Flask.
+Ce module fournit une interface web simple pour effectuer des opérations arithmétiques de base.
+Il utilise les fonctions définies dans le module operators pour les calculs.
+"""
+
 from flask import Flask, request, render_template
 from operators import add, subtract, multiply, divide
 
 app = Flask(__name__)
 
+# Dictionnaire associant les opérateurs à leurs fonctions correspondantes
 OPS = {
     '+': add,
     '-': subtract,
@@ -10,11 +17,23 @@ OPS = {
     '/': divide,
 }
 
-def calculate(expr: str):
+def calculate(expr: str) -> float:
+    """
+    Analyse et évalue une expression arithmétique simple.
+    
+    Args:
+        expr (str): L'expression à évaluer (ex: "2 + 3", "10 - 5")
+    
+    Returns:
+        float: Le résultat de l'opération
+        
+    Raises:
+        ValueError: Si l'expression est invalide, vide, ou contient plusieurs opérateurs
+    """
     if not expr or not isinstance(expr, str):
-        raise ValueError("empty expression")
+        raise ValueError("Expression vide")
 
-    s = expr.replace(" ", "")
+    s = expr.replace(" ", "")  # Supprime les espaces pour faciliter le parsing
 
     op_pos = -1
     op_char = None
@@ -27,7 +46,7 @@ def calculate(expr: str):
             op_char = ch
 
     if op_pos <= 0 or op_pos >= len(s) - 1:
-        # operator at start/end or not found
+        # Les opérandes sont manquantes ou l'opérateur est à une position invalide
         raise ValueError("invalid expression format")
 
     left = s[:op_pos]
