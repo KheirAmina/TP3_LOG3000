@@ -44,13 +44,18 @@ def multiply(a: float, b: float) -> float:
 
 def divide(a: float, b: float) -> float:
     """
-    Effectue une division entière entre deux nombres.
+    Effectue une division entre deux nombres.
     
     Args:
         a (float): Numérateur
         b (float): Dénominateur
     
     Returns:
-        float: Le quotient entier de a divisé par b (a // b)
+        float: Le quotient de a divisé par b
+        
+    Raises:
+        ZeroDivisionError: Si le dénominateur est zéro
     """
-    return a // b
+    if b == 0:
+        raise ZeroDivisionError("Division par zéro")
+    return a / b
