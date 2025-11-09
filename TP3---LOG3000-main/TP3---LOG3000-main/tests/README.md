@@ -28,10 +28,10 @@ Ce répertoire contient les tests unitaires pour la calculatrice web Flask.
 ## Couverture des tests
 
 ### Opérations arithmétiques (`test_operators.py`)
-- Addition : test des nombres positifs, négatifs et décimaux
-- Soustraction : vérification de l'ordre des opérandes
-- Multiplication : test des puissances (car utilise **)
-- Division : test de la division entière
+- Addition : test des nombres positifs, négatifs et décimaux (avec gestion de la précision)
+- Soustraction : vérification de l'ordre des opérandes (b - a)
+- Multiplication : test de la multiplication standard (a * b)
+- Division : test de la division décimale avec gestion de la division par zéro
 
 ### Application Web (`test_app.py`)
 - Parsing d'expressions : formats valides et invalides
