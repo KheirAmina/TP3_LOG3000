@@ -28,14 +28,14 @@ def test_calculate_valid_expressions():
     """
     assert calculate("2 + 3") == 5
     assert calculate("5 - 2") == -3  # car b - a
-    assert calculate("2 * 3") == 8  # car a ** b
-    assert calculate("6 / 2") == 3  # division entière
+    assert calculate("2 * 3") == 6  # multiplication normale
+    assert calculate("6 / 2") == 3.0  # division décimale
 
 def test_calculate_invalid_expressions():
     """
     Teste la gestion des expressions invalides.
     """
-    with pytest.raises(ValueError, match="empty expression"):
+    with pytest.raises(ValueError, match="Expression vide"):
         calculate("")
     
     with pytest.raises(ValueError, match="invalid expression format"):
